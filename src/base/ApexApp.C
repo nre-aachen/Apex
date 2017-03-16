@@ -4,10 +4,15 @@
 #include "ModulesApp.h"
 #include "MooseSyntax.h"
 
+// BCs
+#include "HeatConductionOutflow.h"
+
 template<>
 InputParameters validParams<ApexApp>()
 {
   InputParameters params = validParams<MooseApp>();
+  params.set<bool>("use_legacy_uo_initialization") = false;
+  params.set<bool>("use_legacy_uo_aux_computation") = false;
   return params;
 }
 
@@ -40,6 +45,7 @@ extern "C" void ApexApp__registerObjects(Factory & factory) { ApexApp::registerO
 void
 ApexApp::registerObjects(Factory & factory)
 {
+  registerBoundaryCondition(HeatConductionOutflow);
 }
 
 // External entry point for dynamic syntax association

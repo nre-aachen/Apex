@@ -81,7 +81,7 @@
   scheme = crank-nicolson
   num_steps = 30
   solve_type =  PJFNK
-  ​line_search = basic
+  ​line_searc h = basic
   petsc_options_iname = '-pc_type -sub_pc_type'
   petsc_options_value = 'asm lu'
   dt = 5

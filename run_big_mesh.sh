@@ -28,4 +28,5 @@
 ### Use a specific machine
 #BSUB -m mpi-s-bull
 
- mpiexec -np 12 ./Apex-opt -i problems/big_mesh/c_steady_simple_geomodel.i
+cd $HOME/projects/Apex
+mpiexec -np 12 ./Apex-opt -i problems/big_mesh/c_steady_simple_geomodel.i

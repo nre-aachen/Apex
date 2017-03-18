@@ -28,4 +28,5 @@
 ### Use a specific machine
 #BSUB -m mpi-s-bull
 
+cd $HOME/projects/Apex
 mpirun -n 12 ./Apex-opt -i problems/big_mesh/c_steady_simple_newton.i

@@ -7,6 +7,10 @@
 ###    %J is the job ID, %I is the array ID
 #BSUB -o big.%J.%I
 
+### Send email when job is done
+#BSUB -u gweishar@gmail.com
+#BSUB -N 
+
 ### Request the time you need for execution in minutes
 ### The format for the parameter is: [hour:]minute,
 ### that means for 80 minutes you could also use this: 1:20

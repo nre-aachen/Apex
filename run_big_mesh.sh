@@ -20,4 +20,4 @@
 ### Use a specific machine
 #BSUB -m mpi-s-bull
 
-bash mpirun -n 16 ./Apex-opt -i problems/big_mesh/c_steady_simple_geomodel.i
+bash ./Apex-opt -i problems/big_mesh/c_steady_simple_geomodel.i

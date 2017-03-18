@@ -6,7 +6,7 @@
 ### Request the time you need for execution in minutes
 ### The format for the parameter is: [hour:]minute,
 ### that means for 80 minutes you could also use this: 1:20
-#BSUB -W 03:15
+#BSUB -W 00:30
 
 ### Request memory you need for your job in TOTAL in MB
 #BSUB -M 8192
@@ -20,4 +20,4 @@
 ### Use a specific machine
 #BSUB -m mpi-s-bull
 
-bash mpirun -n 16 ./Apex-opt -i problems/big_mesh/c_steady_simple_newton.i
+bash ./Apex-opt -i problems/big_mesh/c_steady_simple_newton.i

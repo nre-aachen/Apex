@@ -1,4 +1,4 @@
-#### TEMPLATE BIG MESH ####
+#### TEMPLATE BIG MESH - NEWTON SOLVER #####
 
 [Mesh]
   type = GeneratedMesh
@@ -76,7 +76,7 @@
 
 [Executioner]
   type = Steady
-  solve_type =  NEWTON
+  solve_type = NEWTON
 []
 
 [Outputs]

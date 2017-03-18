@@ -1,4 +1,5 @@
-#### SMALL MESH ####
+#### TEMPLATE SMALL MESH ####
+
 [Mesh]
   type = GeneratedMesh
   dim = 3

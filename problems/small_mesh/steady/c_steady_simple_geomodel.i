@@ -1,4 +1,4 @@
-#### TEMPLATE SMALL MESH ####
+####  SMALL MESH ####
 
 [Mesh]
   type = GeneratedMesh

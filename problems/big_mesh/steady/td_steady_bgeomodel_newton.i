@@ -1,4 +1,4 @@
-#### TEMPLATE BIG MESH ####
+#### TEMPLATE BIG MESH - Simple Geomodel - NEWTON SOLVER #####
 
 [Mesh]
   type = GeneratedMesh
@@ -76,9 +76,7 @@
 
 [Executioner]
   type = Steady
-  solve_type =  PJFNK
-  petsc_options_iname = '-pc_type -sub_pc_type'
-  petsc_options_value = 'asm lu'
+  solve_type = NEWTON
 []
 
 [Outputs]

@@ -29,4 +29,4 @@
 #BSUB -m mpi-s-bull
 
 cd $HOME/projects/Apex
-mpirun -n 80 ./Apex-opt -i problems/small_mesh/transient/d_btransient_sperth.i
+mpirun -n 16 ./Apex-opt -i problems/small_mesh/transient/d_btransient_sperth.i

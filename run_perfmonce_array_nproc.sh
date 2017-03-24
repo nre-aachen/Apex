@@ -2,11 +2,11 @@
  
 ### Job name and array definition: run jobs with ID (1,2,3,5)
 ### Note: all jobs may run parallely
-#BSUB -J "myArray[1-6]"
+#BSUB -J "myArray_nproc[1-8]"
  
 ### File / path where STDOUT & STDERR will be written
 ###    %J is the job ID, %I is the array ID
-#BSUB -o perfomance_array.%J.%I
+#BSUB -o perfomance_array_nproc.%J.%I
  
 ### Request the time you need for execution in minutes
 ### The format for the parameter is: [hour:]minute,
@@ -20,9 +20,6 @@
 ### Request memory you need for your job in TOTAL in MB
 #BSUB -M 10240
 
-### Request the number of compute slots you want to use
-#BSUB -n 12
-
 ### Use esub for Open MPI
 #BSUB -a openmpi
  
@@ -32,27 +29,35 @@ echo LSB_JOBINDEX: $LSB_JOBINDEX
 
  case "$LSB_JOBINDEX" in
     1)
-        ./Apex-opt -i problems/performance_test/d_steady_perth_17920.i
+       mpirun -n 1 ./Apex-opt -i problems/performance_test/d_steady_perth_1900800.i
     ;;
  
     2)
-        ./Apex-opt -i problems/performance_test/d_steady_perth_133920.i
+        mpirun -n 2 ./Apex-opt -i problems/performance_test/d_steady_perth_1900800.i
     ;;
 
     3)
-        ./Apex-opt -i problems/performance_test/d_steady_perth_430080.i
+        mpirun -n 4 ./Apex-opt -i problems/performance_test/d_steady_perth_1900800.i
     ;;
 
     4)
-        ./Apex-opt -i problems/performance_test/d_steady_perth_995600.i
+       mpirun -n 8 ./Apex-opt -i problems/performance_test/d_steady_perth_1900800.i
     ;;
 
     5)
-        ./Apex-opt -i problems/performance_test/d_steady_perth_1900800.i
+        mpirun -n 16 ./Apex-opt -i problems/performance_test/d_steady_perth_1900800.i
     ;;
 
     6)
-        ./Apex-opt -i problems/performance_test/d_steady_perth_3248000.i
+        mpirun -n 32 ./Apex-opt -i problems/performance_test/d_steady_perth_1900800.i
+    ;;
+
+    7)
+        mpirun -n 64 ./Apex-opt -i problems/performance_test/d_steady_perth_1900800.i
+    ;;
+
+    8)
+        mpirun -n 128 ./Apex-opt -i problems/performance_test/d_steady_perth_1900800.i
     ;;
  
 esac

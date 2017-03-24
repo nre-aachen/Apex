@@ -37,27 +37,27 @@ echo LSB_JOBINDEX: $LSB_JOBINDEX
 
 case "$LSB_JOBINDEX" in
     1)
-        Apex.out -i problems/performance_test/d_steady_perth_17920.i
+        ./Apex-opt -i problems/performance_test/d_steady_perth_17920.i
     ;;
  
     2)
-        Apex.out -i problems/performance_test/d_steady_perth_133920.i
+        ./Apex-opt -i problems/performance_test/d_steady_perth_133920.i
     ;;
 
     3)
-        Apex.out -i problems/performance_test/d_steady_perth_430080.i
+        ./Apex-opt -i problems/performance_test/d_steady_perth_430080.i
     ;;
 
     4)
-        Apex.out -i problems/performance_test/d_steady_perth_995600.i
+        ./Apex-opt -i problems/performance_test/d_steady_perth_995600.i
     ;;
 
     5)
-        Apex.out -i problems/performance_test/d_steady_perth_1900800.i
+        ./Apex-opt -i problems/performance_test/d_steady_perth_1900800.i
     ;;
 
     6)
-        Apex.out -i problems/performance_test/d_steady_perth_3248000.i
+        ./Apex-opt -i problems/performance_test/d_steady_perth_3248000.i
     ;;
  
 esac

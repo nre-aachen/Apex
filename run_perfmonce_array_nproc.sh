@@ -20,8 +20,6 @@
 ### Request memory you need for your job in TOTAL in MB
 #BSUB -M 1024
 
-### Request the number of compute slots you want to use
-#BSUB -n 64
 
 ### Use esub for Open MPI
 #BSUB -a openmpi
@@ -36,23 +34,25 @@ echo LSB_JOBINDEX: $LSB_JOBINDEX
  case "$LSB_JOBINDEX" in
     
     1)
+        #BSUB -n 8
        mpirun -n 8 ./Apex-opt -i problems/performance_test/d_steady_perth_1900800.i
     ;;
 
     2)
+        #BSUB -n 16
         mpirun -n 16 ./Apex-opt -i problems/performance_test/d_steady_perth_1900800.i
     ;;
 
     3)
+        #BSUB -n 32
         mpirun -n 32 ./Apex-opt -i problems/performance_test/d_steady_perth_1900800.i
     ;;
 
     4)
+        #BSUB -n 64
         mpirun -n 64 ./Apex-opt -i problems/performance_test/d_steady_perth_1900800.i
     ;;
 
-
- 
 esac
 
 

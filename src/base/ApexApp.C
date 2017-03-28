@@ -7,6 +7,14 @@
 // BCs
 #include "HeatConductionOutflow.h"
 
+// Kernels
+#include "DarcyPressure.h"
+#include "DarcyConvection.h"
+
+//Aux Kernels
+#include "DarcyVelocity.h"
+#include "EntropyProduction.h"
+
 template<>
 InputParameters validParams<ApexApp>()
 {
@@ -45,7 +53,11 @@ extern "C" void ApexApp__registerObjects(Factory & factory) { ApexApp::registerO
 void
 ApexApp::registerObjects(Factory & factory)
 {
+	registerKernel(DarcyPressure);
+  registerKernel(DarcyConvection);
   registerBoundaryCondition(HeatConductionOutflow);
+  registerAux(DarcyVelocity);
+  registerAux(EntropyProduction);
 }
 
 // External entry point for dynamic syntax association

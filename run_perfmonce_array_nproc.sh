@@ -6,7 +6,7 @@
  
 ### File / path where STDOUT & STDERR will be written
 ###    %J is the job ID, %I is the array ID
-#BSUB -o perfomance_array_nproc.%J.%I
+#BSUB -o job_logs/perfomance_strong.%J.%I
  
 ### Request the time you need for execution in minutes
 ### The format for the parameter is: [hour:]minute,
@@ -19,7 +19,6 @@
  
 ### Request memory you need for your job in TOTAL in MB
 #BSUB -M 1024
-
 
 ### Use esub for Open MPI
 #BSUB -a openmpi

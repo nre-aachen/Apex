@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
  
-### Job name and array definition: run jobs with ID (1,2,3,5)
+### Job name and array definition: run jobs with ID (1,2,3,4)
 ### Note: all jobs may run parallely
 #BSUB -J "myArray_nproc[1-4]"
  
@@ -18,13 +18,16 @@
 #BSUB -N 
  
 ### Request memory you need for your job in TOTAL in MB
-#BSUB -M 1024
+#BSUB -M 2048
 
 ### Use esub for Open MPI
 #BSUB -a openmpi
 
 ### Use a specific machine
 #BSUB -m mpi-s-bull
+
+### Request number of slots
+#BSUB -n 64
  
 ### which one array job is this?
 echo LSB_JOBINDEX: $LSB_JOBINDEX
@@ -33,22 +36,22 @@ echo LSB_JOBINDEX: $LSB_JOBINDEX
  case "$LSB_JOBINDEX" in
     
     1)
-        #BSUB -n 8
+        
        mpirun -n 8 ./Apex-opt -i problems/performance_test/d_steady_perth_1900800.i
     ;;
 
     2)
-        #BSUB -n 16
+        
         mpirun -n 16 ./Apex-opt -i problems/performance_test/d_steady_perth_1900800.i
     ;;
 
     3)
-        #BSUB -n 32
+        
         mpirun -n 32 ./Apex-opt -i problems/performance_test/d_steady_perth_1900800.i
     ;;
 
     4)
-        #BSUB -n 64
+        
         mpirun -n 64 ./Apex-opt -i problems/performance_test/d_steady_perth_1900800.i
     ;;
 

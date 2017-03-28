@@ -39,7 +39,7 @@ DarcyConvection::DarcyConvection(const InputParameters & parameters) :
     _porosity(getMaterialProperty<Real>("porosity")),
     _viscosity(getMaterialProperty<Real>("viscosity")),
     _density(getMaterialProperty<Real>("density")),
-    _heat_capacity(getMaterialProperty<Real>("heat_capacity"))
+    _heat_capacity(getMaterialProperty<Real>("specific_heat"))
 {
 }
 

@@ -1,4 +1,4 @@
-#### CONVECTION-DIFFUSION STEADY  - PERTH BASIN SECTION ####
+#### CONVECTION-DIFFUSION TRANSIENT  - PERTH BASIN SECTION ####
 
 [Mesh]
   type = GeneratedMesh
@@ -60,6 +60,10 @@
   [../]
   [./heat_conduction]
     type = HeatConduction
+    variable = temperature
+  [../]
+  [./heat_conduction_time_derivative]
+    type = HeatConductionTimeDerivative
     variable = temperature
   [../]
   [./heat_convection]
@@ -154,6 +158,7 @@
 
 
 [BCs]
+  active='basin_bottom_temp basin_top_temp'
   [./basin_top_pressure]
     type = DirichletBC
     variable = pressure
@@ -179,19 +184,13 @@
 #[]
 
 [Executioner]
-
-  #active='newton_solver'
-  #[./newton_solver]
-    type = Steady
-    solve_type = NEWTON
-  #[../]
-
-  #[./pjfnk_solver]
-    #type = Steady
-    #solve_type =  PJFNK
-    #petsc_options_iname = '-pc_type -sub_pc_type'
-    #petsc_options_value = 'asm lu'
-  #[../]
+  type = Transient
+  scheme = crank-nicolson
+  num_steps = 50
+  solve_type =  PJFNK
+  petsc_options_iname = '-pc_type -sub_pc_type'
+  petsc_options_value = 'asm lu'
+  dt = 1500
 []
 
 [Outputs]

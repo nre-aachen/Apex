@@ -21,10 +21,12 @@
 []
 
 [Variables]
+  active = 'temperature pressure'
   [./pressure]
   [../]
   [./temperature]
   [../]
+
 []
 
 [AuxVariables]
@@ -54,6 +56,7 @@
 []
 
 [Kernels]
+  active = 'heat_convection gravity darcy_pressure heat_conduction'
   [./darcy_pressure]
     type = DarcyPressure
     variable = pressure
@@ -62,11 +65,17 @@
     type = HeatConduction
     variable = temperature
   [../]
+  [./gravity]
+    type = BodyForce
+    variable = temperature
+    value = -9.81
+  [../]
   [./heat_convection]
     type = DarcyConvection
     variable = temperature
     darcy_pressure = pressure
   [../]
+
 []
 
 
@@ -94,25 +103,25 @@
     type = GenericConstantMaterial
     block = 3
     prop_names = 'thermal_conductivity specific_heat density permeability porosity viscosity'
-    prop_values = '2.62 775 2520 1.2e-13 0.06 0.89' # W/m*K, J/kg-K, kg/m^3, m2, N*s/m^2 
+    prop_values = '2.62 775 2520 1.2e-13 0.06 0.89' # W/m*K, J/kg-K, kg/m^3, m2, N*s/m^2
   [../]
   [./kockatea_Shale]
     type = GenericConstantMaterial
     block = 4
     prop_names = 'thermal_conductivity specific_heat density permeability porosity viscosity'
-    prop_values = '2.09 900 2650 1.5e-15 0.12 0.89' # W/m*K, J/kg-K, kg/m^3, m2, N*s/m^2 
+    prop_values = '2.09 900 2650 1.5e-15 0.12 0.89' # W/m*K, J/kg-K, kg/m^3, m2, N*s/m^2
   [../]
   [./late_Permian]
     type = GenericConstantMaterial
     block = 5
     prop_names = 'thermal_conductivity specific_heat density permeability porosity viscosity'
-    prop_values = '3 900 2650 1.2e-14 0.05 0.89' # W/m*K, J/kg-K, kg/m^3, m2, N*s/m^2 
+    prop_values = '3 900 2650 1.2e-14 0.05 0.89' # W/m*K, J/kg-K, kg/m^3, m2, N*s/m^2
   [../]
   [./lesueur_Ss]
     type = GenericConstantMaterial
     block = 6
     prop_names = 'thermal_conductivity specific_heat density permeability porosity viscosity'
-    prop_values = '3.56 775 2650 2e-15 0.09 0.89' # W/m*K, J/kg-K, kg/m^3, m2, N*s/m^2 
+    prop_values = '3.56 775 2650 2e-15 0.09 0.89' # W/m*K, J/kg-K, kg/m^3, m2, N*s/m^2
   [../]
   #[./neocomian_Unc]
   #  type = GenericConstantMaterial
@@ -142,7 +151,7 @@
   #  type = GenericConstantMaterial
   #  block = 11
   #  prop_names = 'thermal_conductivity specific_heat density permeability porosity viscosity'
-  #  prop_values = '3.2 980 2700 1.2e-18 0.01 0.89' # W/m*K, J/kg-K, kg/m^3, m2, N*s/m^2 
+  #  prop_values = '3.2 980 2700 1.2e-18 0.01 0.89' # W/m*K, J/kg-K, kg/m^3, m2, N*s/m^2
   #[../]
   [./out]
     type = GenericConstantMaterial
@@ -154,17 +163,24 @@
 
 
 [BCs]
+  active='basin_top_fixed_temp basin_bottom_temp'
+  [./basin_top_fixed_temp]
+    type = DirichletBC
+    variable = temperature
+    boundary = front
+    value= 300 #K
+  [../]
   [./basin_top_pressure]
     type = DirichletBC
     variable = pressure
     boundary = front
-    value = 1e5 # Pa
+    value = 1e5 # Pa approximate atmospheric pressure
   [../]
   [./basin_bottom_temp]
     type = NeumannBC
     variable = temperature
     boundary = back
-    value = -0.03
+    value = 0.03 #W/m2
   [../]
   [./basin_top_temp]
     type = FunctionDirichletBC
@@ -182,15 +198,15 @@
 
   #active='newton_solver'
   #[./newton_solver]
-    #type = Steady
-    #solve_type = NEWTON
+    type = Steady
+    solve_type = NEWTON
   #[../]
 
   #[./pjfnk_solver]
-    type = Steady
-    solve_type =  PJFNK
-    petsc_options_iname = '-pc_type -sub_pc_type'
-    petsc_options_value = 'asm lu'
+    #type = Steady
+    #solve_type =  PJFNK
+    #petsc_options_iname = '-pc_type -sub_pc_type'
+    #petsc_options_value = 'asm lu'
   #[../]
 []
 

@@ -5,7 +5,7 @@
 
 ### File / path where STDOUT & STDERR will be written
 ###    %J is the job ID, %I is the array ID
-#BSUB -o transient.%J.%I
+#BSUB -o job_logs/transient.%J.%I
 
 ### Send email when job is done
 #BSUB -u gweishar@gmail.com

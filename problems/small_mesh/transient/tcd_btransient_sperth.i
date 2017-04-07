@@ -1,8 +1,10 @@
 #### CONVECTION-DIFFUSION | BIG TRANSIENT | TEMPLATE - PERTH BASIN SECTION ####
 [GlobalParams]
-  gravity = '0 0 -9.8'
+  gravity = '0 0 0'
   rho = 1
   mu = 1
+  cp = 1
+  k = .01
 []
 
 [Mesh]
@@ -65,6 +67,13 @@
     w = vel_z
     p = pressure
   [../]
+
+  # x-momentum, time
+  [./x_momentum_time]
+    type = INSMomentumTimeDerivative
+    variable = vel_x
+  [../]
+
   # x-momentum, space
   [./x_momentum_space]
     type = INSMomentumLaplaceForm
@@ -74,6 +83,12 @@
     w = vel_z
     p = pressure
     component = 0
+  [../]
+
+  # y-momentum, time
+  [./y_momentum_time]
+    type = INSMomentumTimeDerivative
+    variable = vel_y
   [../]
 
   # y-momentum, space
@@ -87,7 +102,13 @@
     component = 1
   [../]
 
-  # y-momentum, space
+  # z-momentum, time
+  [./z_momentum_time]
+    type = INSMomentumTimeDerivative
+    variable = vel_z
+  [../]
+
+  # z-momentum, space
   [./z_momentum_space]
     type = INSMomentumLaplaceForm
     variable = vel_z
@@ -98,26 +119,19 @@
     component = 2
   [../]
 
-  [./darcy_pressure]
-    type = DarcyPressure
-    variable = pressure
-  [../]
+ # temperature
+ [./temperature_time]
+   type = INSTemperatureTimeDerivative
+   variable = temperature
+ [../]
 
-  [./heat_conduction]
-    type = HeatConduction
-    variable = temperature
-  [../]
-
-  [./heat_conduction_time_derivative]
-    type = HeatConductionTimeDerivative
-    variable = temperature
-  [../]
-
-  [./heat_convection]
-    type = DarcyConvection
-    variable = temperature
-    darcy_pressure = pressure
-  [../]
+ [./temperature_space]
+   type = INSTemperature
+   variable = temperature
+   u = vel_x
+   v = vel_y
+   w = vel_z
+ [../]
 []
 
 
@@ -247,16 +261,39 @@
 #[Problem]
 #  type = FEProblem
 #[]
+[Preconditioning]
+  [./SMP]
+    type = SMP
+    full = true
+    solve_type = 'NEWTON'
+  [../]
+[]
 
 [Executioner]
   type = Transient
-  scheme = crank-nicolson
-  num_steps = 300 # simulate for 300 days
-  solve_type =  PJFNK
-  petsc_options_iname = '-pc_type -sub_pc_type'
-  petsc_options_value = 'asm lu'
-  dt = 86400 # 24h in seconds
+
+  num_steps = 300
+  dt = 86400
+  dtmin = 3600
+  petsc_options_iname = '-pc_type -pc_asm_overlap -sub_pc_type -sub_pc_factor_levels'
+  petsc_options_value = 'asm      2               ilu          4'
+  line_search = 'none'
+  nl_rel_tol = 1e-12
+  nl_abs_tol = 1e-13
+  nl_max_its = 6
+  l_tol = 1e-6
+  l_max_its = 500
 []
+
+#[Executioner]
+#  type = Transient
+#  scheme = crank-nicolson
+#  num_steps = 300 # simulate for 300 days
+#  solve_type =  PJFNK
+#  petsc_options_iname = '-pc_type -sub_pc_type'
+#  petsc_options_value = 'asm lu'
+#  dt = 86400 # 24h in seconds
+#[]
 
 [Outputs]
   exodus = true

@@ -20,7 +20,7 @@
 #BSUB -M 4024
 
 ### Request the number of compute slots you want to use
-#BSUB -n 8
+#BSUB -n 16
 
 ### Use esub for Open MPI
 #BSUB -a openmpi

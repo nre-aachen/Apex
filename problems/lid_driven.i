@@ -1,5 +1,5 @@
 [GlobalParams]
-  gravity = '0 0 0'
+  gravity = '0 0 -9.8'
   rho = 1
   mu = 1
   cp = 1
@@ -8,14 +8,17 @@
 
 [Mesh]
   type = GeneratedMesh
-  dim = 2
+  dim = 3
   xmin = 0
   xmax = 1.0
   ymin = 0
   ymax = 1.0
+  zmin=0
+  zmax = 1
   nx = 16
   ny = 16
-  elem_type = QUAD9
+  nz = 16
+  second_order = true
 []
 
 [MeshModifiers]
@@ -37,6 +40,11 @@
     family = LAGRANGE
   [../]
 
+  [./vel_z]
+    order = SECOND
+    family = LAGRANGE
+  [../]
+
   [./T]
     order = SECOND
     family = LAGRANGE
@@ -54,12 +62,13 @@
 []
 
 [Kernels]
-  # mass
+  #active = 'mass heat_conduction x_momentum_space y_momentum_space z_momentum_space heat_convection heat_conduction_time_derivative'
   [./mass]
     type = INSMass
     variable = p
     u = vel_x
     v = vel_y
+    w = vel_z
     p = p
   [../]
 
@@ -75,6 +84,7 @@
     variable = vel_x
     u = vel_x
     v = vel_y
+    w = vel_z
     p = p
     component = 0
   [../]
@@ -91,8 +101,26 @@
     variable = vel_y
     u = vel_x
     v = vel_y
+    w = vel_z
     p = p
     component = 1
+  [../]
+
+  # z-momentum, time
+  [./z_momentum_time]
+    type = INSMomentumTimeDerivative
+    variable = vel_z
+  [../]
+
+  # z-momentum, space
+  [./z_momentum_space]
+    type = INSMomentumLaplaceForm
+    variable = vel_z
+    u = vel_x
+    v = vel_y
+    w = vel_z
+    p = p
+    component = 2
   [../]
 
  # temperature
@@ -106,6 +134,7 @@
    variable = T
    u = vel_x
    v = vel_y
+   w = vel_z
  [../]
 []
 
@@ -113,7 +142,7 @@
   [./x_no_slip]
     type = DirichletBC
     variable = vel_x
-    boundary = 'bottom right left'
+    boundary = 'bottom right left front back'
     value = 0.0
   [../]
 
@@ -127,7 +156,7 @@
   [./y_no_slip]
     type = DirichletBC
     variable = vel_y
-    boundary = 'bottom right top left'
+    boundary = 'bottom right top left front back'
     value = 0.0
   [../]
 
@@ -145,7 +174,7 @@
     value = 0
   [../]
 
-  [./pressure_pin]
+  [./p_pin]
     type = DirichletBC
     variable = p
     boundary = 'pinned_node'

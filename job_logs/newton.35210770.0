@@ -1,0 +1,307 @@
+[linuxbmc0653.rz.RWTH-Aachen.DE:04886] MCW rank 0 bound to socket 0[core 0[hwt 0-1]], socket 0[core 1[hwt 0-1]], socket 0[core 2[hwt 0-1]], socket 0[core 3[hwt 0-1]], socket 0[core 4[hwt 0-1]], socket 0[core 5[hwt 0-1]]: [BB/BB/BB/BB/BB/BB][../../../../../..]
+[linuxbmc0653.rz.RWTH-Aachen.DE:04886] MCW rank 1 bound to socket 1[core 6[hwt 0-1]], socket 1[core 7[hwt 0-1]], socket 1[core 8[hwt 0-1]], socket 1[core 9[hwt 0-1]], socket 1[core 10[hwt 0-1]], socket 1[core 11[hwt 0-1]]: [../../../../../..][BB/BB/BB/BB/BB/BB]
+[linuxbmc0407.rz.RWTH-Aachen.DE:20097] MCW rank 5 bound to socket 1[core 6[hwt 0-1]], socket 1[core 7[hwt 0-1]], socket 1[core 8[hwt 0-1]], socket 1[core 9[hwt 0-1]], socket 1[core 10[hwt 0-1]], socket 1[core 11[hwt 0-1]]: [../../../../../..][BB/BB/BB/BB/BB/BB]
+[linuxbmc0407.rz.RWTH-Aachen.DE:20097] MCW rank 4 bound to socket 0[core 0[hwt 0-1]], socket 0[core 1[hwt 0-1]], socket 0[core 2[hwt 0-1]], socket 0[core 3[hwt 0-1]], socket 0[core 4[hwt 0-1]], socket 0[core 5[hwt 0-1]]: [BB/BB/BB/BB/BB/BB][../../../../../..]
+[linuxbmc0915.rz.RWTH-Aachen.DE:21753] MCW rank 9 bound to socket 1[core 6[hwt 0-1]], socket 1[core 7[hwt 0-1]], socket 1[core 8[hwt 0-1]], socket 1[core 9[hwt 0-1]], socket 1[core 10[hwt 0-1]], socket 1[core 11[hwt 0-1]]: [../../../../../..][BB/BB/BB/BB/BB/BB]
+[linuxbmc0915.rz.RWTH-Aachen.DE:21753] MCW rank 8 bound to socket 0[core 0[hwt 0-1]], socket 0[core 1[hwt 0-1]], socket 0[core 2[hwt 0-1]], socket 0[core 3[hwt 0-1]], socket 0[core 4[hwt 0-1]], socket 0[core 5[hwt 0-1]]: [BB/BB/BB/BB/BB/BB][../../../../../..]
+[linuxbmc0404.rz.RWTH-Aachen.DE:24329] MCW rank 3 bound to socket 1[core 6[hwt 0-1]], socket 1[core 7[hwt 0-1]], socket 1[core 8[hwt 0-1]], socket 1[core 9[hwt 0-1]], socket 1[core 10[hwt 0-1]], socket 1[core 11[hwt 0-1]]: [../../../../../..][BB/BB/BB/BB/BB/BB]
+[linuxbmc0404.rz.RWTH-Aachen.DE:24329] MCW rank 2 bound to socket 0[core 0[hwt 0-1]], socket 0[core 1[hwt 0-1]], socket 0[core 2[hwt 0-1]], socket 0[core 3[hwt 0-1]], socket 0[core 4[hwt 0-1]], socket 0[core 5[hwt 0-1]]: [BB/BB/BB/BB/BB/BB][../../../../../..]
+[linuxbmc0919.rz.RWTH-Aachen.DE:28446] MCW rank 10 bound to socket 0[core 0[hwt 0-1]], socket 0[core 1[hwt 0-1]], socket 0[core 2[hwt 0-1]], socket 0[core 3[hwt 0-1]], socket 0[core 4[hwt 0-1]], socket 0[core 5[hwt 0-1]]: [BB/BB/BB/BB/BB/BB][../../../../../..]
+[linuxbmc0919.rz.RWTH-Aachen.DE:28446] MCW rank 11 bound to socket 1[core 6[hwt 0-1]], socket 1[core 7[hwt 0-1]], socket 1[core 8[hwt 0-1]], socket 1[core 9[hwt 0-1]], socket 1[core 10[hwt 0-1]], socket 1[core 11[hwt 0-1]]: [../../../../../..][BB/BB/BB/BB/BB/BB]
+[linuxbmc0910.rz.RWTH-Aachen.DE:24838] MCW rank 6 bound to socket 0[core 0[hwt 0-1]], socket 0[core 1[hwt 0-1]], socket 0[core 2[hwt 0-1]], socket 0[core 3[hwt 0-1]], socket 0[core 4[hwt 0-1]], socket 0[core 5[hwt 0-1]]: [BB/BB/BB/BB/BB/BB][../../../../../..]
+[linuxbmc0910.rz.RWTH-Aachen.DE:24838] MCW rank 7 bound to socket 1[core 6[hwt 0-1]], socket 1[core 7[hwt 0-1]], socket 1[core 8[hwt 0-1]], socket 1[core 9[hwt 0-1]], socket 1[core 10[hwt 0-1]], socket 1[core 11[hwt 0-1]]: [../../../../../..][BB/BB/BB/BB/BB/BB]
+
+Framework Information:
+MOOSE version:           git commit ae77c90 on 2017-03-16
+PETSc Version:           3.6.4
+Current Time:            Mon Mar 20 14:59:01 2017
+Executable Timestamp:    Fri Mar 17 18:02:35 2017
+
+Parallelism:
+  Num Processors:          12
+  Num Threads:             1
+
+Mesh: 
+  Parallel Type:           replicated
+  Mesh Dimension:          3
+  Spatial Dimension:       3
+  Nodes:                   
+    Total:                 449631
+    Local:                 39318
+  Elems:                   
+    Total:                 432000
+    Local:                 35648
+  Num Subdomains:          3
+  Num Partitions:          12
+  Partitioner:             metis
+
+Nonlinear System:
+  Num DOFs:                449631
+  Num Local DOFs:          39318
+  Variables:               "temperature" 
+  Finite Element Types:    "LAGRANGE" 
+  Approximation Orders:    "FIRST" 
+
+Execution Information:
+  Executioner:             Steady
+  Solver Mode:             NEWTON
+
+
+
+ 0 Nonlinear |R| = [32m4.166719e+04[39m
+      0 Linear |R| = [32m4.166719e+04[39m
+      1 Linear |R| = [33m4.082732e+04[39m
+      2 Linear |R| = [32m3.699505e+04[39m
+      3 Linear |R| = [32m3.089360e+04[39m
+      4 Linear |R| = [32m2.526984e+04[39m
+      5 Linear |R| = [32m2.124005e+04[39m
+      6 Linear |R| = [32m1.764514e+04[39m
+      7 Linear |R| = [32m1.473196e+04[39m
+      8 Linear |R| = [32m1.266320e+04[39m
+      9 Linear |R| = [32m1.101311e+04[39m
+     10 Linear |R| = [32m9.710290e+03[39m
+     11 Linear |R| = [32m8.607134e+03[39m
+     12 Linear |R| = [32m7.672473e+03[39m
+     13 Linear |R| = [32m6.851858e+03[39m
+     14 Linear |R| = [32m6.146086e+03[39m
+     15 Linear |R| = [32m5.616300e+03[39m
+     16 Linear |R| = [32m5.170840e+03[39m
+     17 Linear |R| = [32m4.760347e+03[39m
+     18 Linear |R| = [32m4.404689e+03[39m
+     19 Linear |R| = [32m4.086267e+03[39m
+     20 Linear |R| = [32m3.807889e+03[39m
+     21 Linear |R| = [32m3.534150e+03[39m
+     22 Linear |R| = [32m3.255218e+03[39m
+     23 Linear |R| = [32m2.998855e+03[39m
+     24 Linear |R| = [32m2.756335e+03[39m
+     25 Linear |R| = [32m2.528509e+03[39m
+     26 Linear |R| = [32m2.322261e+03[39m
+     27 Linear |R| = [32m2.137703e+03[39m
+     28 Linear |R| = [32m1.961508e+03[39m
+     29 Linear |R| = [32m1.782807e+03[39m
+     30 Linear |R| = [32m1.604048e+03[39m
+     31 Linear |R| = [33m1.547718e+03[39m
+     32 Linear |R| = [32m1.455644e+03[39m
+     33 Linear |R| = [33m1.413013e+03[39m
+     34 Linear |R| = [32m1.337814e+03[39m
+     35 Linear |R| = [33m1.281139e+03[39m
+     36 Linear |R| = [33m1.237818e+03[39m
+     37 Linear |R| = [33m1.191664e+03[39m
+     38 Linear |R| = [33m1.147960e+03[39m
+     39 Linear |R| = [33m1.112191e+03[39m
+     40 Linear |R| = [33m1.079064e+03[39m
+     41 Linear |R| = [33m1.051953e+03[39m
+     42 Linear |R| = [33m1.024933e+03[39m
+     43 Linear |R| = [33m9.954928e+02[39m
+     44 Linear |R| = [33m9.632861e+02[39m
+     45 Linear |R| = [33m9.233886e+02[39m
+     46 Linear |R| = [32m8.617950e+02[39m
+     47 Linear |R| = [33m8.214507e+02[39m
+     48 Linear |R| = [33m7.911979e+02[39m
+     49 Linear |R| = [32m7.471735e+02[39m
+     50 Linear |R| = [33m7.148670e+02[39m
+     51 Linear |R| = [32m6.788069e+02[39m
+     52 Linear |R| = [32m6.229813e+02[39m
+     53 Linear |R| = [32m5.609933e+02[39m
+     54 Linear |R| = [32m4.912612e+02[39m
+     55 Linear |R| = [32m4.179004e+02[39m
+     56 Linear |R| = [32m3.530047e+02[39m
+     57 Linear |R| = [32m2.914470e+02[39m
+     58 Linear |R| = [32m2.318048e+02[39m
+     59 Linear |R| = [32m1.894955e+02[39m
+     60 Linear |R| = [32m1.583943e+02[39m
+     61 Linear |R| = [32m1.488717e+02[39m
+     62 Linear |R| = [32m1.340428e+02[39m
+     63 Linear |R| = [32m1.234720e+02[39m
+     64 Linear |R| = [32m1.027629e+02[39m
+     65 Linear |R| = [32m8.533373e+01[39m
+     66 Linear |R| = [32m7.152335e+01[39m
+     67 Linear |R| = [32m5.969580e+01[39m
+     68 Linear |R| = [32m5.128538e+01[39m
+     69 Linear |R| = [32m4.562532e+01[39m
+     70 Linear |R| = [32m3.992487e+01[39m
+     71 Linear |R| = [32m3.505744e+01[39m
+     72 Linear |R| = [32m2.964883e+01[39m
+     73 Linear |R| = [32m2.461909e+01[39m
+     74 Linear |R| = [32m2.164764e+01[39m
+     75 Linear |R| = [32m1.852554e+01[39m
+     76 Linear |R| = [32m1.627166e+01[39m
+     77 Linear |R| = [32m1.503303e+01[39m
+     78 Linear |R| = [32m1.385500e+01[39m
+     79 Linear |R| = [32m1.264192e+01[39m
+     80 Linear |R| = [32m1.166081e+01[39m
+     81 Linear |R| = [32m1.052425e+01[39m
+     82 Linear |R| = [32m9.266698e+00[39m
+     83 Linear |R| = [32m8.071882e+00[39m
+     84 Linear |R| = [32m6.814957e+00[39m
+     85 Linear |R| = [32m5.933941e+00[39m
+     86 Linear |R| = [32m5.249112e+00[39m
+     87 Linear |R| = [32m4.551786e+00[39m
+     88 Linear |R| = [32m4.015613e+00[39m
+     89 Linear |R| = [32m3.729850e+00[39m
+     90 Linear |R| = [32m3.520454e+00[39m
+     91 Linear |R| = [33m3.430443e+00[39m
+     92 Linear |R| = [33m3.309098e+00[39m
+     93 Linear |R| = [33m3.177937e+00[39m
+     94 Linear |R| = [33m3.050241e+00[39m
+     95 Linear |R| = [33m2.947855e+00[39m
+     96 Linear |R| = [33m2.854676e+00[39m
+     97 Linear |R| = [33m2.768129e+00[39m
+     98 Linear |R| = [33m2.694548e+00[39m
+     99 Linear |R| = [33m2.621784e+00[39m
+    100 Linear |R| = [33m2.557397e+00[39m
+    101 Linear |R| = [33m2.489147e+00[39m
+    102 Linear |R| = [33m2.404753e+00[39m
+    103 Linear |R| = [33m2.314279e+00[39m
+    104 Linear |R| = [32m2.198041e+00[39m
+    105 Linear |R| = [32m2.075078e+00[39m
+    106 Linear |R| = [32m1.949290e+00[39m
+    107 Linear |R| = [33m1.867318e+00[39m
+    108 Linear |R| = [32m1.763952e+00[39m
+    109 Linear |R| = [32m1.671408e+00[39m
+    110 Linear |R| = [33m1.593393e+00[39m
+    111 Linear |R| = [32m1.488081e+00[39m
+    112 Linear |R| = [32m1.326051e+00[39m
+    113 Linear |R| = [32m1.123840e+00[39m
+    114 Linear |R| = [32m9.108388e-01[39m
+    115 Linear |R| = [32m7.082976e-01[39m
+    116 Linear |R| = [32m5.457969e-01[39m
+    117 Linear |R| = [32m4.313452e-01[39m
+    118 Linear |R| = [32m3.582656e-01[39m
+ 1 Nonlinear |R| = [32m3.582656e-01[39m
+      0 Linear |R| = [32m3.582656e-01[39m
+      1 Linear |R| = [32m3.288668e-01[39m
+      2 Linear |R| = [32m2.886068e-01[39m
+      3 Linear |R| = [32m2.375963e-01[39m
+      4 Linear |R| = [32m1.927028e-01[39m
+      5 Linear |R| = [32m1.590944e-01[39m
+      6 Linear |R| = [32m1.308353e-01[39m
+      7 Linear |R| = [32m1.141846e-01[39m
+      8 Linear |R| = [32m1.060635e-01[39m
+      9 Linear |R| = [32m9.928346e-02[39m
+     10 Linear |R| = [32m9.264285e-02[39m
+     11 Linear |R| = [32m8.650145e-02[39m
+     12 Linear |R| = [32m8.104141e-02[39m
+     13 Linear |R| = [32m7.233360e-02[39m
+     14 Linear |R| = [32m6.595406e-02[39m
+     15 Linear |R| = [32m6.018525e-02[39m
+     16 Linear |R| = [32m5.521079e-02[39m
+     17 Linear |R| = [32m5.092318e-02[39m
+     18 Linear |R| = [32m4.637230e-02[39m
+     19 Linear |R| = [32m4.220642e-02[39m
+     20 Linear |R| = [32m3.860339e-02[39m
+     21 Linear |R| = [32m3.546388e-02[39m
+     22 Linear |R| = [32m3.273628e-02[39m
+     23 Linear |R| = [32m3.075292e-02[39m
+     24 Linear |R| = [32m2.842628e-02[39m
+     25 Linear |R| = [32m2.644257e-02[39m
+     26 Linear |R| = [32m2.439378e-02[39m
+     27 Linear |R| = [32m2.285881e-02[39m
+     28 Linear |R| = [33m2.172067e-02[39m
+     29 Linear |R| = [32m1.995569e-02[39m
+     30 Linear |R| = [32m1.791527e-02[39m
+     31 Linear |R| = [32m1.693762e-02[39m
+     32 Linear |R| = [33m1.612475e-02[39m
+     33 Linear |R| = [33m1.559537e-02[39m
+     34 Linear |R| = [33m1.497585e-02[39m
+     35 Linear |R| = [33m1.427463e-02[39m
+     36 Linear |R| = [33m1.359968e-02[39m
+     37 Linear |R| = [33m1.294814e-02[39m
+     38 Linear |R| = [33m1.244805e-02[39m
+     39 Linear |R| = [33m1.197095e-02[39m
+     40 Linear |R| = [33m1.147761e-02[39m
+     41 Linear |R| = [33m1.101570e-02[39m
+     42 Linear |R| = [33m1.066941e-02[39m
+     43 Linear |R| = [33m1.029965e-02[39m
+     44 Linear |R| = [33m9.865072e-03[39m
+     45 Linear |R| = [33m9.381577e-03[39m
+     46 Linear |R| = [33m9.010666e-03[39m
+     47 Linear |R| = [33m8.662690e-03[39m
+     48 Linear |R| = [33m8.261637e-03[39m
+     49 Linear |R| = [33m7.886832e-03[39m
+     50 Linear |R| = [32m7.447508e-03[39m
+     51 Linear |R| = [32m6.924800e-03[39m
+     52 Linear |R| = [32m6.258748e-03[39m
+     53 Linear |R| = [32m5.519139e-03[39m
+     54 Linear |R| = [32m4.734974e-03[39m
+     55 Linear |R| = [32m3.901576e-03[39m
+     56 Linear |R| = [32m3.337138e-03[39m
+     57 Linear |R| = [32m2.775476e-03[39m
+     58 Linear |R| = [32m2.316903e-03[39m
+     59 Linear |R| = [32m2.035160e-03[39m
+     60 Linear |R| = [32m1.734323e-03[39m
+     61 Linear |R| = [32m1.537678e-03[39m
+     62 Linear |R| = [32m1.376235e-03[39m
+     63 Linear |R| = [32m1.195570e-03[39m
+     64 Linear |R| = [32m1.030858e-03[39m
+     65 Linear |R| = [32m9.034870e-04[39m
+     66 Linear |R| = [32m7.806765e-04[39m
+     67 Linear |R| = [32m6.842309e-04[39m
+     68 Linear |R| = [32m6.095443e-04[39m
+     69 Linear |R| = [32m5.538189e-04[39m
+     70 Linear |R| = [32m5.121243e-04[39m
+     71 Linear |R| = [32m4.739091e-04[39m
+     72 Linear |R| = [32m4.402324e-04[39m
+     73 Linear |R| = [32m3.947003e-04[39m
+     74 Linear |R| = [32m3.607987e-04[39m
+     75 Linear |R| = [32m3.300349e-04[39m
+     76 Linear |R| = [32m3.075567e-04[39m
+     77 Linear |R| = [32m2.880108e-04[39m
+     78 Linear |R| = [32m2.686892e-04[39m
+     79 Linear |R| = [32m2.489749e-04[39m
+     80 Linear |R| = [32m2.284710e-04[39m
+     81 Linear |R| = [32m2.075829e-04[39m
+     82 Linear |R| = [32m1.901135e-04[39m
+     83 Linear |R| = [32m1.775518e-04[39m
+     84 Linear |R| = [32m1.651137e-04[39m
+     85 Linear |R| = [32m1.544873e-04[39m
+     86 Linear |R| = [32m1.427723e-04[39m
+     87 Linear |R| = [32m1.320494e-04[39m
+     88 Linear |R| = [32m1.235728e-04[39m
+     89 Linear |R| = [33m1.174563e-04[39m
+     90 Linear |R| = [33m1.120186e-04[39m
+     91 Linear |R| = [33m1.078663e-04[39m
+     92 Linear |R| = [33m1.031134e-04[39m
+     93 Linear |R| = [33m9.893093e-05[39m
+     94 Linear |R| = [33m9.500229e-05[39m
+     95 Linear |R| = [33m9.071960e-05[39m
+     96 Linear |R| = [33m8.656849e-05[39m
+     97 Linear |R| = [33m8.237606e-05[39m
+     98 Linear |R| = [33m7.875990e-05[39m
+     99 Linear |R| = [33m7.491006e-05[39m
+    100 Linear |R| = [32m7.077650e-05[39m
+    101 Linear |R| = [33m6.737202e-05[39m
+    102 Linear |R| = [33m6.480136e-05[39m
+    103 Linear |R| = [33m6.201901e-05[39m
+    104 Linear |R| = [33m5.893293e-05[39m
+    105 Linear |R| = [32m5.551613e-05[39m
+    106 Linear |R| = [32m5.224116e-05[39m
+    107 Linear |R| = [32m4.942889e-05[39m
+    108 Linear |R| = [32m4.641735e-05[39m
+    109 Linear |R| = [33m4.428977e-05[39m
+    110 Linear |R| = [32m4.159594e-05[39m
+    111 Linear |R| = [32m3.841905e-05[39m
+    112 Linear |R| = [32m3.446030e-05[39m
+    113 Linear |R| = [32m3.008414e-05[39m
+    114 Linear |R| = [32m2.613038e-05[39m
+    115 Linear |R| = [32m2.177922e-05[39m
+    116 Linear |R| = [32m1.868005e-05[39m
+    117 Linear |R| = [32m1.577867e-05[39m
+    118 Linear |R| = [32m1.351168e-05[39m
+    119 Linear |R| = [32m1.213386e-05[39m
+    120 Linear |R| = [32m1.036921e-05[39m
+    121 Linear |R| = [32m9.096324e-06[39m
+    122 Linear |R| = [32m8.323491e-06[39m
+    123 Linear |R| = [32m7.461782e-06[39m
+    124 Linear |R| = [32m6.691522e-06[39m
+    125 Linear |R| = [32m6.110571e-06[39m
+    126 Linear |R| = [32m5.549900e-06[39m
+    127 Linear |R| = [32m5.104090e-06[39m
+    128 Linear |R| = [32m4.721256e-06[39m
+    129 Linear |R| = [32m4.420837e-06[39m
+    130 Linear |R| = [32m4.194030e-06[39m
+    131 Linear |R| = [32m3.961961e-06[39m
+    132 Linear |R| = [32m3.736358e-06[39m
+    133 Linear |R| = [32m3.385992e-06[39m
+ 2 Nonlinear |R| = [32m3.385992e-06[39m
+
